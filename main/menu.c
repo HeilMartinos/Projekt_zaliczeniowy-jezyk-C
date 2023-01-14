@@ -32,6 +32,7 @@ void menu()
             run = 0;
             break;
         case 1:
+            printf("\e[1;1H\e[2J");
             printf("[Losowanie]\n");
             printf("[!]Podaj zakres losowania:\n");
             int min;
@@ -40,9 +41,11 @@ void menu()
             scanf("%d", &min);
             printf("Max: ");
             scanf("%d", &max);
+            printf("\e[1;1H\e[2J");
             printf("\nWylosowano liczbe %d.\n", randNumber(min, max));
             break;
         case 2:
+            printf("\e[1;1H\e[2J");
             printf("[Mediana]\n");
             int* tab;
             int liczba;
@@ -56,10 +59,12 @@ void menu()
                 scanf("%d", &tab[i]);
             }
             printArray(tab, liczba);
+            printf("\e[1;1H\e[2J");
             printf("\nMediana tablicy: %f.\n", median(tab, liczba));
             freeMemoryInt(tab);
             break;
         case 3:
+            printf("\e[1;1H\e[2J");
             printf("[Szukanie]\n");
             int size;
             float* tab2;
@@ -75,17 +80,21 @@ void menu()
             float value;
             printf("[!]Podaj szukana wartosc: ");
             scanf("%f", &value);
+            printf("\e[1;1H\e[2J");
             printf("\nPodana wartosc wystepuje %d razy.\n", countTheSame(tab2, value, size));
             freeMemory(tab2);
             break;
         case 4:;
+            printf("\e[1;1H\e[2J");
             printf("[Miasta]\n[!]Wybierz opcje:\n1: Dodaj miasta\n2: Zapisz miasta do pliku\n3: Wczytaj miasta z pliku.\n");
             int opcja;
             scanf("%d", &opcja);
             if(opcja<1 || opcja>3){
+                printf("\e[1;1H\e[2J");
                 printf("\n[ERROR]Podales zla opcje.\n");
             }
             if(opcja == 1){
+                printf("\e[1;1H\e[2J");
                 int liczMiast;
                 printf("[Dodaj miasta]\n[!]Podaj liczbe miast, ktore chcesz dodac: ");
                 scanf("%d", &liczMiast);
@@ -94,19 +103,24 @@ void menu()
                 {
                     cities[i] = scanCity();
                 }
+                printf("\e[1;1H\e[2J");
                 printCities(cities, liczMiast);
             }
             if(opcja==2){
+                printf("\e[1;1H\e[2J");
                 char nazwa[50];
-                printf("[Zapisz do pliku]\n[!]Podaj nazwe pliku: ");
+                printf("[Zapisz do pliku]\n[!]Podaj nazwe pliku z zakonczeniem .txt: ");
                 scanf("%s", nazwa);
+                printf("\e[1;1H\e[2J");
                 saveCities(cities, ileTab, nazwa);
                 ileTab=0;
             }
             if(opcja==3){
+                printf("\e[1;1H\e[2J");
                 char nazwa[50];
-                printf("[Wczytaj z pliku]\n[!]Podaj nazwe pliku: ");
+                printf("[Wczytaj z pliku]\n[!]Podaj nazwe pliku z zakonczeniem .txt: ");
                 scanf("%s", nazwa);
+                printf("\e[1;1H\e[2J");
                 readCities(nazwa, ileTab);
             }
         }

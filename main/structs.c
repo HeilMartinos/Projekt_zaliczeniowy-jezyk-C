@@ -4,7 +4,7 @@
 #include "../headers/main.h"
 struct City* scanCity() {
     struct City* city = malloc(sizeof(struct City));
-    printf("\n[!]Podaj wartosci kodu pocztowego (5 liczb calkowitych):\n");
+    printf("\n[!]Podaj wartosci kodu pocztowego (5 liczb calkowitych, po jednej w kazdym wierszu):\n");
     for (int i = 0; i < 5; i++) {
         printf("%d: ", i+1);
         scanf("%d", &city->address[i]);
